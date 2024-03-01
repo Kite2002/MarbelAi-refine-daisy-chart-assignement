@@ -101,13 +101,13 @@ export const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Stats
+      {/* <Stats
         dailyRevenue={dailyRevenue}
         dailyOrders={dailyOrders}
         newCustomers={newCustomers}
-      />
+      /> */}
       <TabView tabs={tabs} />
-      <RecentSales />
+      {/* <RecentSales /> */}
     </>
   );
 };
