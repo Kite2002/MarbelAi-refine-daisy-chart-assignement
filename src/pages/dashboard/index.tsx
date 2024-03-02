@@ -101,13 +101,24 @@ export const Dashboard: React.FC = () => {
 
   return (
     <>
-      {/* <Stats
+      <Stats
         dailyRevenue={dailyRevenue}
         dailyOrders={dailyOrders}
         newCustomers={newCustomers}
-      /> */}
-      <TabView tabs={tabs} />
-      {/* <RecentSales /> */}
+      />
+      {/* <TabView tabs={tabs} /> */}
+      <div className="bg-white shadow-[0px_1px_2px_0px_#00000040]  rounded-[10px] pr-8 md:px-12 md:py-4">
+        <ResponsiveAreaChart
+          kpi="Daily revenue"
+          data={memoizedRevenueData}
+          colors={{
+            stroke: "rgb(54, 162, 235)",
+            fill: "rgba(54, 162, 235, 0.2)",
+          }}
+        />
+      </div>
+
+      <RecentSales />
     </>
   );
 };
