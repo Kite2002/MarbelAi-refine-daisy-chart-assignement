@@ -119,7 +119,7 @@ export const ResponsiveAreaChart = ({
         width={800}
         data={newData}
       >
-        <CartesianGrid strokeWidth={2} stroke="#E6E6E6" vertical={false} />
+        <CartesianGrid strokeWidth={1} stroke="#E6E6E6" vertical={false} />
         <XAxis
           stroke="#676767"
           dy={10}
