@@ -28,7 +28,7 @@ export interface IAddress {
 
 export interface IChartDatum {
   date: string;
-  value: string;
+  [key: string]: any;
 }
 
 export interface IChart {
@@ -59,3 +59,10 @@ export type TTab = {
   label: string;
   content: JSX.Element;
 };
+
+export interface PayLoadInterface {
+  stroke: string; // Optional property for stroke color
+  strokeDasharray: string | null; // Optional property for stroke dash array
+  value: number | null; // Optional property for the numeric value
+  dataKey: string; // Property for the key used to access data in newData
+}
