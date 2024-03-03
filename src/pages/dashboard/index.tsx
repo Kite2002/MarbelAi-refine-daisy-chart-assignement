@@ -13,6 +13,10 @@ import {
   ChevronUpIcon,
   PencilIcon,
 } from "@heroicons/react/20/solid";
+import {
+  InformationCircleIcon,
+  PresentationChartLineIcon,
+} from "@heroicons/react/24/outline";
 
 const filters: CrudFilter[] = [
   {
@@ -125,15 +129,39 @@ export const Dashboard: React.FC = () => {
                     <span className="text-[14px] font-medium text-[#303030]">
                       Online store sessions
                     </span>
-                    <button
-                      className="group-hover:opacity-100 opacity-0
-transition-opacity duration-300 rounded-md p-[5px] hover:bg-[#CBC8C8]"
+
+                    <div
+                      className="dropdown group-even:dropdown-end
+                    "
                     >
-                      <PencilIcon
-                        color="#00000080"
-                        className="   w-[15px] h-[15px] "
-                      />
-                    </button>
+                      <button
+                        className="group-hover:opacity-100 opacity-0
+transition-opacity duration-300 rounded-md p-[5px] hover:bg-[#CBC8C8]"
+                      >
+                        <PencilIcon
+                          color="#00000080"
+                          className="   w-[15px] h-[15px] "
+                        />
+                      </button>
+                      <ul className="shadow menu dropdown-content gap-[5px] z-[1] bg-base-100 rounded-[10px] ">
+                        {[1, 2, 3, 4].map((item, index) => {
+                          return (
+                            <li className="flex justify-between">
+                              <button className="flex text-xs text-[#303030] justify-between">
+                                <div className="flex items-center gap-x-[10px]">
+                                  <PresentationChartLineIcon className="h-4 w-4" />
+                                  <p className=" text-nowrap">
+                                    Online store sessions
+                                  </p>
+                                </div>
+
+                                <InformationCircleIcon className="ml-5 h-3 w-3" />
+                              </button>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   </div>
                   <div className="flex gap-[5px] justify-start items-center">
                     <span className="text-[18px]  font-bold text-[#303030]">
