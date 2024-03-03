@@ -3,12 +3,9 @@ import { CrudFilter, useList } from "@refinedev/core";
 import dayjs from "dayjs";
 import Stats from "../../components/dashboard/Stats";
 import { ResponsiveAreaChart } from "../../components/dashboard/ResponsiveAreaChart";
-import { ResponsiveBarChart } from "../../components/dashboard/ResponsiveBarChart";
-import { TabView } from "../../components/dashboard/TabView";
 import { RecentSales } from "../../components/dashboard/RecentSales";
-import { IChartDatum, TTab } from "../../interfaces";
+import { IChartDatum } from "../../interfaces";
 import {
-  ArrowTrendingUpIcon,
   ChevronDownIcon,
   ChevronUpIcon,
   PencilIcon,
@@ -17,6 +14,7 @@ import {
   InformationCircleIcon,
   PresentationChartLineIcon,
 } from "@heroicons/react/24/outline";
+import { data } from "../../Data/data";
 
 const filters: CrudFilter[] = [
   {
@@ -32,6 +30,7 @@ const filters: CrudFilter[] = [
 ];
 
 export const Dashboard: React.FC = () => {
+  const newData: IChartDatum[] = data;
   const [showChart, setShowChart] = useState(true);
   const { data: dailyRevenue } = useList<IChartDatum>({
     resource: "dailyRevenue",
@@ -48,20 +47,7 @@ export const Dashboard: React.FC = () => {
     filters,
   });
 
-  const useMemoizedChartData = (d: any) => {
-    return useMemo(() => {
-      return d?.data?.data?.map((item: IChartDatum) => ({
-        date: new Intl.DateTimeFormat("en-US", {
-          month: "short",
-          year: "numeric",
-          day: "numeric",
-        }).format(new Date(item.date)),
-        value: item?.value,
-      }));
-    }, [d]);
-  };
 
-  const memoizedRevenueData = useMemoizedChartData(dailyRevenue);
 
   return (
     <>
@@ -139,16 +125,7 @@ export const Dashboard: React.FC = () => {
             <ChevronDownIcon className="h-6 w-6" />
           </button>
         </div>
-        {showChart && (
-          <ResponsiveAreaChart
-            kpi="Daily revenue"
-            data={memoizedRevenueData}
-            colors={{
-              stroke: "rgb(54, 162, 235)",
-              fill: "rgba(54, 162, 235, 0.2)",
-            }}
-          />
-        )}
+        {showChart && <ResponsiveAreaChart data={newData} />}
         <div className="flex justify-end gap-[10px]">
           {[
             {
