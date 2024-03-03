@@ -41,6 +41,19 @@ export const Dashboard: React.FC = () => {
     filters,
   });
 
+  const legendData = [
+    {
+      stroke: "#489AD2",
+      dashed: false,
+      value: "Actual Sessions",
+    },
+    {
+      stroke: "#489AD233",
+      dashed: true,
+      value: "Predicted Sessions",
+    },
+  ];
+  const dataCardInfo = [1, 2, 3, 4];
   return (
     <>
       <Stats
@@ -52,7 +65,7 @@ export const Dashboard: React.FC = () => {
       <div className="bg-white  shadow-[0px_1px_2px_0px_#00000040] py-7 space-y-9  rounded-[10px] px-4 pr-8 md:px-12 md:py-4">
         <div className="flex justify-between items-center">
           <div className="w-[95%] grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-[25px] ">
-            {[1, 2, 3, 4].map((item, index) => {
+            {dataCardInfo.map((item, index) => {
               return <ChartDataCard key={index} />;
             })}
           </div>
@@ -62,18 +75,7 @@ export const Dashboard: React.FC = () => {
         </div>
         {showChart && <ResponsiveAreaChart data={newData} />}
         <div className="flex justify-end gap-[10px]">
-          {[
-            {
-              stroke: "#489AD2",
-              dashed: false,
-              value: "Actual Sessions",
-            },
-            {
-              stroke: "#489AD233",
-              dashed: true,
-              value: "Predicted Sessions",
-            },
-          ].map((pld, index) => {
+          {legendData.map((pld, index) => {
             return <ChartCustomLegend key={index} pld={pld} />;
           })}
         </div>
