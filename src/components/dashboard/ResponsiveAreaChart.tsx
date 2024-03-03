@@ -37,7 +37,7 @@ export const ResponsiveAreaChart = ({ data }: TResponsiveAreaChartProps) => {
           tick={{ fontSize: 18 }}
           axisLine={false}
           tickLine={false}
-          tickFormatter={(tick) => formatDate(tick)}
+          tickFormatter={(tick) => formatDate(tick , data.length < 12)}
           dataKey="date"
           minTickGap={90}
         />
