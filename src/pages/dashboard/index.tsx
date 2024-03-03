@@ -62,53 +62,6 @@ export const Dashboard: React.FC = () => {
   };
 
   const memoizedRevenueData = useMemoizedChartData(dailyRevenue);
-  const memoizedOrdersData = useMemoizedChartData(dailyOrders);
-  const memoizedNewCustomersData = useMemoizedChartData(newCustomers);
-
-  const tabs: TTab[] = [
-    {
-      id: 1,
-      label: "Daily Revenue",
-      content: (
-        <ResponsiveAreaChart
-          kpi="Daily revenue"
-          data={memoizedRevenueData}
-          colors={{
-            stroke: "rgb(54, 162, 235)",
-            fill: "rgba(54, 162, 235, 0.2)",
-          }}
-        />
-      ),
-    },
-    {
-      id: 2,
-      label: "Daily Orders",
-      content: (
-        <ResponsiveBarChart
-          kpi="Daily orders"
-          data={memoizedOrdersData}
-          colors={{
-            stroke: "rgb(255, 159, 64)",
-            fill: "rgba(255, 159, 64, 0.7)",
-          }}
-        />
-      ),
-    },
-    {
-      id: 3,
-      label: "New Customers",
-      content: (
-        <ResponsiveAreaChart
-          kpi="New customers"
-          data={memoizedNewCustomersData}
-          colors={{
-            stroke: "rgb(76, 175, 80)",
-            fill: "rgba(54, 162, 235, 0.2)",
-          }}
-        />
-      ),
-    },
-  ];
 
   return (
     <>
@@ -117,7 +70,6 @@ export const Dashboard: React.FC = () => {
         dailyOrders={dailyOrders}
         newCustomers={newCustomers}
       />
-      {/* <TabView tabs={tabs} /> */}
 
       <div className="bg-white  shadow-[0px_1px_2px_0px_#00000040] py-7 space-y-9  rounded-[10px] px-4 pr-8 md:px-12 md:py-4">
         <div className="flex justify-between items-center">
@@ -197,6 +149,33 @@ export const Dashboard: React.FC = () => {
             }}
           />
         )}
+        <div className="flex justify-end gap-[10px]">
+          {[
+            {
+              stroke: "#489AD2",
+              dashed: false,
+              value: "Actual Sessions",
+            },
+            {
+              stroke: "#489AD233",
+              dashed: true,
+              value: "Predicted Sessions",
+            },
+          ].map((pld, index) => {
+            return (
+              <div className="flex items-center gap-3 bg-[#F6F6F7] rounded-md px-3 py-1 ">
+                <div
+                  style={{
+                    borderColor: pld?.stroke,
+                    borderStyle: pld?.dashed ? "dashed" : "solid",
+                  }}
+                  className={`border-2 h-[1px] w-4`}
+                />
+                <p className="text-[12px] text-[#70707A]">{pld?.value}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <RecentSales />
