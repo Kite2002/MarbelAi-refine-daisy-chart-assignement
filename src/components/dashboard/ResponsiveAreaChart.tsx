@@ -100,13 +100,17 @@ export const ResponsiveAreaChart = ({
     { date: "Dec 30, 2023", value: 21000, value_2: 23800 },
     { date: "Dec 31, 2023", value: 20500, value_2: 21800 },
   ];
-  const formatDate = (date: string) => {
-    return new Intl.DateTimeFormat("en-US", {
+  const formatDate = (date: string, day?: boolean) => {
+    let dateConfig: any = {
       month: "short",
       year: "numeric",
-    }).format(new Date(date));
+    };
+    if (day) {
+      dateConfig = { ...dateConfig, day: "2-digit" };
+    }
+    return new Intl.DateTimeFormat("en-US", dateConfig).format(new Date(date));
   };
-  const tickCount = data?.length > 8 ? 8 : data?.length;
+
   return (
     <ResponsiveContainer
       height={282}
@@ -162,28 +166,22 @@ export const ResponsiveAreaChart = ({
                           }}
                           className={`border-2 h-[1px] w-4`}
                         ></div>
-                        <p>{formatDate(label)}</p>
+                        <p>{formatDate(label, true)}</p>
                         <p>{pld.value?.toLocaleString("en-IN")}</p>
-                        {firstData > pld?.value ? (
-                          <ArrowTrendingDownIcon
-                            color="red"
-                            className="h-4 w-4"
-                          />
+                        {key == "value" ? (
+                          firstData > pld?.value ? (
+                            <ArrowTrendingDownIcon className="h-4 w-4" />
+                          ) : (
+                            <ArrowTrendingUpIcon className="h-4 w-4" />
+                          )
                         ) : (
-                          <ArrowTrendingUpIcon
-                            color="green"
-                            className="h-4 w-4"
-                          />
+                          <></>
                         )}
-                        <p
-                          style={{
-                            color: firstData > pld?.value ? "red" : "green",
-                          }}
-                        >
-                          {Math.abs(
-                            ((firstData - pld?.value) / firstData) * 100
-                          ).toFixed(2)}
-                          %
+                        <p>
+                          {key == "value" &&
+                            Math.abs(
+                              ((firstData - pld?.value) / firstData) * 100
+                            ).toFixed(2) + "%"}
                         </p>
                       </div>
                     );
