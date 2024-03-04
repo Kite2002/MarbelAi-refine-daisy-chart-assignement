@@ -9,6 +9,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { data } from "../../Data/data";
 import ChartDataCard from "../../components/dashboard/ChartDataCard";
 import ChartCustomLegend from "../../components/dashboard/ChartCustomLegend";
+import Datepicker, { DateValueType } from "react-tailwindcss-datepicker";
 
 const filters: CrudFilter[] = [
   {
@@ -54,6 +55,16 @@ export const Dashboard: React.FC = () => {
     },
   ];
   const dataCardInfo = [1, 2, 3, 4];
+  const [value, setValue] = useState<DateValueType>({
+    startDate: null,
+    endDate: null,
+  });
+  console.log(value);
+
+  const handleValueChange = (newValue: any) => {
+    console.log("newValue:", newValue);
+    setValue(newValue);
+  };
   return (
     <>
       <Stats
@@ -73,6 +84,17 @@ export const Dashboard: React.FC = () => {
             <ChevronDownIcon className="h-6 w-6" />
           </button>
         </div>
+        <div className="flex justify-end">
+          <div className="w-[100%] md:w-[40%] self-end shadow-sm rounded-lg shadow-gray-400">
+            <Datepicker
+              showShortcuts={true}
+              primaryColor="sky"
+              value={value}
+              onChange={handleValueChange}
+            />
+          </div>
+        </div>
+
         {showChart && <ResponsiveAreaChart data={newData} />}
         <div className="flex justify-end gap-[10px]">
           {legendData.map((pld, index) => {
