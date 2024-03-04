@@ -31,9 +31,11 @@
     "@refinedev/react-router-v6": "^4.5.5",
     "@refinedev/react-table": "^5.6.6",
     "@refinedev/simple-rest": "^5.0.2",
+    "dayjs": "^1.11.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.8.1",
+    "react-tailwindcss-datepicker": "^1.6.6",
     "recharts": "^2.1.9"
   },
   "devDependencies": {
