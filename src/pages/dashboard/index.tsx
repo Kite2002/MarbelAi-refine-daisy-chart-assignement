@@ -28,6 +28,13 @@ export const Dashboard: React.FC = () => {
   const [data, setData] = useState<IChartDatum[]>([]);
   const [loading, setLoading] = useState(true);
   const [showChart, setShowChart] = useState(true);
+  const [selectedDatacards, setSelectedDataCards] = useState([
+    "Online Store sessions",
+    "Predicted Store sessions",
+    "Conversion Rate",
+    "Net Return value",
+  ]);
+  const [dataCards, setDataCards] = useState({});
   const { data: dailyRevenue } = useList<IChartDatum>({
     resource: "dailyRevenue",
     filters,
@@ -55,7 +62,6 @@ export const Dashboard: React.FC = () => {
       value: "Predicted Sessions",
     },
   ];
-  const dataCardInfo = [1, 2, 3, 4];
   const [value, setValue] = useState<DateValueType>({
     startDate: null,
     endDate: null,
@@ -66,8 +72,12 @@ export const Dashboard: React.FC = () => {
   };
 
   const fetchData = async () => {
-    const res = await getDataBetweenDates(value?.startDate, value?.endDate);
+    const res = await getDataBetweenDates(
+      value?.startDate as Date,
+      value?.endDate as Date
+    );
     setData(res?.data);
+    setDataCards(res?.dataCards);
   };
 
   useEffect(() => {
@@ -84,12 +94,12 @@ export const Dashboard: React.FC = () => {
 
       <div className="bg-white  shadow-[0px_1px_2px_0px_#00000040] py-7 space-y-9  rounded-[10px] px-4 pr-8 md:px-12 md:py-4">
         <div className="flex justify-between items-center">
-          <div className="w-[95%] grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-[25px] ">
-            {dataCardInfo.map((item, index) => {
-              return <ChartDataCard key={index} />;
+          <div className="w-[100%] md:w-[95%] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[25px] ">
+            {selectedDatacards.map((item, index) => {
+              return <ChartDataCard item={item} dataCards={dataCards} key={index} />;
             })}
           </div>
-          <button onClick={() => setShowChart(!showChart)}>
+          <button className="hidden md:flex" onClick={() => setShowChart(!showChart)}>
             <ChevronDownIcon className="h-6 w-6" />
           </button>
         </div>

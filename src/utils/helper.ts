@@ -24,10 +24,32 @@ export function getDataBetweenDates(startDate?: Date, endDate?: Date) {
     "Online Store sessions": {
       value: filteredData.reduce((total, entry) => total + entry.value, 0),
       type: "quantity",
+      change : 21,
+      info : "Your Store's traffic volume shown in sessions"
     },
     "Predicted Store sessions": {
       value: filteredData.reduce((total, entry) => total + entry.value_2, 0),
       type: "quantity",
+      change : 22.2,
+      info : "Your Store's predicted traffic volume shown in sessions"
+    },
+    "Conversion Rate": {
+      value: 5,
+      type: "rate",
+      change : 1 ,
+      info : "Your Store's conversion rate shown in sessions"
+    },
+    "Net Return value": {
+      value: -15021,
+      type: "amount",
+      change : -6.32 ,
+      info : "Your Store's net return value rate shown in sessions"
+    },
+    "Gross Sales": {
+      value: 250211,
+      type: "quantity",
+      change : 24,
+      info : "Your Store's gross sales shown in sessions"
     },
   };
 
