@@ -1,9 +1,5 @@
-import {
-  ChevronUpIcon,
-  InformationCircleIcon,
-  PencilIcon,
-  PresentationChartLineIcon,
-} from "@heroicons/react/20/solid";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
+import { InformationCircleIcon, PencilIcon, PresentationChartLineIcon } from "@heroicons/react/24/outline";
 
 type Props = {};
 
@@ -48,7 +44,7 @@ export default function ChartDataCard({}: Props) {
       "
         >
           <button className="group-hover:opacity-100 group-first:opacity-100 opacity-0  focus-within:opacity-100 focus-within:bg-[#CBC8C8] transition-opacity duration-300 rounded-md p-[5px] hover:bg-[#CBC8C8]">
-            <PencilIcon color="#00000080" className="   w-[15px] h-[15px] " />
+            <PencilIcon color="#00000080" className="   w-[18px] h-[18px] " />
           </button>
           <DropDown />
         </div>

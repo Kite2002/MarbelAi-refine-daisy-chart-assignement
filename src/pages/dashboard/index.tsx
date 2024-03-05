@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CrudFilter, useList } from "@refinedev/core";
 import dayjs from "dayjs";
 import Stats from "../../components/dashboard/Stats";
@@ -6,10 +6,10 @@ import { ResponsiveAreaChart } from "../../components/dashboard/ResponsiveAreaCh
 import { RecentSales } from "../../components/dashboard/RecentSales";
 import { IChartDatum } from "../../interfaces";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { data } from "../../Data/data";
 import ChartDataCard from "../../components/dashboard/ChartDataCard";
 import ChartCustomLegend from "../../components/dashboard/ChartCustomLegend";
 import Datepicker, { DateValueType } from "react-tailwindcss-datepicker";
+import { getDataBetweenDates } from "../../utils/helper";
 
 const filters: CrudFilter[] = [
   {
@@ -25,7 +25,8 @@ const filters: CrudFilter[] = [
 ];
 
 export const Dashboard: React.FC = () => {
-  const newData: IChartDatum[] = data;
+  const [data, setData] = useState<IChartDatum[]>([]);
+  const [loading, setLoading] = useState(true);
   const [showChart, setShowChart] = useState(true);
   const { data: dailyRevenue } = useList<IChartDatum>({
     resource: "dailyRevenue",
@@ -59,12 +60,20 @@ export const Dashboard: React.FC = () => {
     startDate: null,
     endDate: null,
   });
-  console.log(value);
 
   const handleValueChange = (newValue: any) => {
-    console.log("newValue:", newValue);
     setValue(newValue);
   };
+
+  const fetchData = async () => {
+    const res = await getDataBetweenDates(value?.startDate, value?.endDate);
+    setData(res?.data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [value]);
+
   return (
     <>
       <Stats
@@ -84,23 +93,27 @@ export const Dashboard: React.FC = () => {
             <ChevronDownIcon className="h-6 w-6" />
           </button>
         </div>
-        <div className="flex justify-end">
-          <div className="w-[100%] md:w-[40%] self-end shadow-sm rounded-lg shadow-gray-400">
-            <Datepicker
-              showShortcuts={true}
-              primaryColor="sky"
-              value={value}
-              onChange={handleValueChange}
-            />
-          </div>
-        </div>
 
-        {showChart && <ResponsiveAreaChart data={newData} />}
-        <div className="flex justify-end gap-[10px]">
-          {legendData.map((pld, index) => {
-            return <ChartCustomLegend key={index} pld={pld} />;
-          })}
-        </div>
+        {showChart && (
+          <>
+            <div className="flex justify-end pb-4">
+              <div className="w-[100%] md:w-[40%] self-end shadow-sm rounded-lg shadow-gray-400">
+                <Datepicker
+                  showShortcuts={true}
+                  primaryColor="sky"
+                  value={value}
+                  onChange={handleValueChange}
+                />
+              </div>
+            </div>
+            <ResponsiveAreaChart data={data} />{" "}
+            <div className="flex justify-end gap-[10px]">
+              {legendData.map((pld, index) => {
+                return <ChartCustomLegend key={index} pld={pld} />;
+              })}
+            </div>
+          </>
+        )}
       </div>
 
       <RecentSales />
