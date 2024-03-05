@@ -1,5 +1,9 @@
 <h1 align="center" id="title">Interactive Dashboard and data visualizer</h1>
 
+## Documentation
+
+[Documentation](https://docs.google.com/document/d/11uDLnSaDpNuM_RKNFCfeqICVJy2DRR4zYqXPnExbE6o/edit?usp=sharing)
+
 
 <p id="description">This is a simple data visualizer which uses Refine and Daisy UI. The Line chart is completely interactive with tooltip displaying the actual predicted and actual data hike from start date</p>
 
