@@ -11,7 +11,7 @@ export const Menu = () => {
           <li key={item?.key} className="mx-0 flex justify-start items-center">
             <div className="text-gray-600">
               <NavLink
-                className="text-sm flex items-center"
+                className="text-xs flex items-center"
                 to={item?.route ?? "/"}
               >
                 <span className="mr-2">{item?.icon}</span>
