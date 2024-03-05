@@ -1,69 +1,60 @@
-<div align="center" style="margin: 30px;">
+<h1 align="center" id="title">Interactive Dashboard and data visualizer</h1>
 
-![Cover Image](https://refine.ams3.cdn.digitaloceanspaces.com/blog/2023-09-06-daisy-ui-panel/daisyui.jpg "Cover Image")
+<p align="center"><img src="https://drive.google.com/file/d/1tTRJ0QovMb-N5XmbrbEkprGIvqNKp8qd/view?usp=drive_link" alt="project-image"></p>
 
+<p id="description">This is a simple data visualizer which uses Refine and Daisy UI. The Line chart is completely interactive with tooltip displaying the actual predicted and actual data hike from start date</p>
 
-<br />
-<br />
+<h2>🚀 Demo</h2>
 
-<div align="center">
-    <a href="https://refine.dev">Home Page</a> |
-    <a href="https://discord.gg/refine">Discord</a> |
-    <a href="https://refine.dev/examples/">Examples</a> | 
-    <a href="https://refine.dev/blog/">Blog</a> | 
-    <a href="https://refine.dev/docs/">Documentation</a>
-</div>
-</div>
+[https://marbleaitask.netlify.app/](https://marbleaitask.netlify.app/)
 
-<br />
+<h2>Project Screenshots:</h2>
 
-<div align="center"><strong>Build your <a href="https://reactjs.org/">React</a>-based CRUD applications, without constraints.</strong><br>An open source, headless web application framework developed with flexibility in mind.
+<img src="" alt="project-screenshot" width="400" height="400/">
 
-<br />
-<br />
+  
+  
+<h2>🧐 Features</h2>
 
-[![Discord](https://img.shields.io/discord/837692625737613362.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/refine)
-[![Twitter Follow](https://img.shields.io/twitter/follow/refine_dev?style=social)](https://twitter.com/refine_dev)
+Here're some of the project's best features:
 
-<a href="https://www.producthunt.com/posts/refine-3?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-refine&#0045;3" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=362220&theme=light&period=daily" alt="refine - 100&#0037;&#0032;open&#0032;source&#0032;React&#0032;framework&#0032;to&#0032;build&#0032;web&#0032;apps&#0032;3x&#0032;faster | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+*   Interactive Line chart
+*   Flexible Date selection for data
+*   Data card values change with date range(Pick date between OCT 2022 - DEC 2023))
+*   Hike / dip display on tooltip depending upon data point
+*   Reusable Data card component for multiple use cases
+*   Expand / hide chart
+*   Fully responsive and figma accurate
 
-</div>
+<h2>🛠️ Installation Steps:</h2>
 
-
-## About
-
-This example provides a great starting point to learn how to build a full-fledged admin panel by integrating [**daisyUI**](https://daisyui.com) with [**refine**](https://github.com/refinedev/refine)
-
-**daisyUI** is a TailwinCSS based component templates library. It provides shorter, semantic class names composed from regular TailwindCSS classes that also come with responsive, color, size and shape variants. As such, daisyUI offers the convenience of using friendly class names to style markups while beautifying React code. On top of these, daisyUI classes can be overridden and extented. Besides, it lets us use regular TailwindCSS classes as well. In this example, you'll discover how to use daisyUI templates to style React components.
-
-refine is a React-based powerful framework for building low-code applications. It is primarily focused on implementing data-heavy apps such as internal tools, dashboards, admin panels, and storefronts. It comes with a core package that segregates app concerns like data handling, authentication, access control, etc., into React contexts. It also supports integration with industry standard backend systems such and UI frameworks. It is highly customizable and extensible. In this example, you get an opportunity to learn how to integrate **daisyUI** with **refine** for building an admin panel app.
-
-Refer to the complete tutorial of this app [here.](https://refine.dev/blog/daisy-ui-react-admin-panel/)
-
-## Quick Start
-
-Run the following command to download the project:
+<p>1. Clone the Repo</p>
 
 ```
-npm create refine-app@latest -- --example blog-refine-daisyui
+git clone https://github.com/Kite2002/MarbelAi-refine-daisy-chart-assignement.git
 ```
 
-Once the setup is complete, navigate to the project folder and start your project with:
+<p>2. Install Dependencies</p>
+
+```
+npm install 
+```
+
+<p>3. Run start the local dev server</p>
 
 ```
 npm run dev
 ```
 
-Your application will be accessible at http://localhost:5173
+<p>4. Open the displayed link in the browser</p>
 
-![Dashboard Page](https://refine.ams3.cdn.digitaloceanspaces.com/blog/2023-09-06-daisy-ui-panel/dash-1.png "Dashboard Page")
+  
+  
+<h2>💻 Built with</h2>
 
-![Product List Page](https://refine.ams3.cdn.digitaloceanspaces.com/blog/2023-09-06-daisy-ui-panel/dash-2.png "Product List Page")
+Technologies used in the project:
 
-![Product Edit Page](https://refine.ams3.cdn.digitaloceanspaces.com/blog/2023-09-06-daisy-ui-panel/dash-3.png "Product Edit Page")
-
-### Resources
-
-Refer to [daisyUI docs](https://daisyui.com/docs/install/) for more information.
-
-Refer to complete CRUD app [tutorial](https://refine.dev/docs/tutorial/introduction/index/) to learn more about refine.
+*   React JS
+*   Refine
+*   Daisy UI
+*   Recharts
