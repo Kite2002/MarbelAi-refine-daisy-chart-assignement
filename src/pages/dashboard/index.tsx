@@ -92,7 +92,7 @@ export const Dashboard: React.FC = () => {
         newCustomers={newCustomers}
       />
 
-      <div className="bg-white  shadow-[0px_1px_2px_0px_#00000040] py-7 space-y-9  rounded-[10px] px-4 pr-8 md:px-12 md:py-4">
+      <div className="bg-white max-w-[100%] overflow-hidden  shadow-[0px_1px_2px_0px_#00000040] py-7 space-y-9  rounded-[10px] px-4 pr-8 md:px-12 md:py-4">
         <div className="flex justify-between items-center">
           <div className="w-[100%] md:w-[95%] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[25px] ">
             {selectedDatacards.map((item, index) => {
