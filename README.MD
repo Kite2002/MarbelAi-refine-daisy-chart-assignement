@@ -1,6 +1,5 @@
 <h1 align="center" id="title">Interactive Dashboard and data visualizer</h1>
 
-<p align="center"><img src="https://drive.google.com/file/d/1tTRJ0QovMb-N5XmbrbEkprGIvqNKp8qd/view?usp=drive_link" alt="project-image"></p>
 
 <p id="description">This is a simple data visualizer which uses Refine and Daisy UI. The Line chart is completely interactive with tooltip displaying the actual predicted and actual data hike from start date</p>
 
@@ -8,9 +7,7 @@
 
 [https://marbleaitask.netlify.app/](https://marbleaitask.netlify.app/)
 
-<h2>Project Screenshots:</h2>
 
-<img src="" alt="project-screenshot" width="400" height="400/">
 
   
   
