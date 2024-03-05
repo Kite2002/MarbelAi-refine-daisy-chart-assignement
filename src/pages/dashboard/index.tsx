@@ -109,6 +109,7 @@ export const Dashboard: React.FC = () => {
             <div className="flex justify-end pb-4">
               <div className="w-[100%] md:w-[40%] self-end shadow-sm rounded-lg shadow-gray-400">
                 <Datepicker
+                  popoverDirection="down"
                   showShortcuts={true}
                   primaryColor="sky"
                   value={value}
