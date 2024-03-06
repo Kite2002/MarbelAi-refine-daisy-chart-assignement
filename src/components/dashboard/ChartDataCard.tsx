@@ -1,4 +1,4 @@
-oiimport { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import {
   InformationCircleIcon,
   PencilIcon,
