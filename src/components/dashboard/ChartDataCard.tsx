@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
+oiimport { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import {
   InformationCircleIcon,
   PencilIcon,
@@ -45,9 +45,9 @@ export default function ChartDataCard({ item, dataCards }: Props) {
     <div className="px-4 first-of-type:bg-[#f1f1f1] flex-1 group  transition-all duration-300 py-2 focus-within:bg-[#F1F1F1] hover:bg-[#F1F1F1] bg-white rounded-[10px] flex-col space-y-[5px] ">
       <div className="flex justify-between items-center">
         <span className=" border-b-[1px] border-[#CCCCCC] border-dashed text-[14px] font-medium text-[#303030]">
-          <div className="dropdown w-[300px] max-w-[90%] dropdown-hover">
+          <div className="dropdown  dropdown-hover">
             <div tabIndex={0}>{item}</div>
-            <div className="dropdown-content gap-3 shadow flex-col px-4 py-3 z-[1] bg-base-100 rounded-box ">
+            <div className="dropdown-content w-[300px] max-w-[90%] gap-3 shadow flex-col px-4 py-3 z-[1] bg-base-100 rounded-box ">
               <p className=" text-base font-semibold">{item}</p>
               <p className="text-sm text-[#00000089]">{thisData?.info}</p>
             </div>
