@@ -47,7 +47,7 @@ export default function ChartDataCard({ item, dataCards }: Props) {
         <span className=" border-b-[1px] border-[#CCCCCC] border-dashed text-[14px] font-medium text-[#303030]">
           <div className="dropdown  dropdown-hover">
             <div tabIndex={0}>{item}</div>
-            <div className="dropdown-content w-[300px] max-w-[90%] gap-3 shadow flex-col px-4 py-3 z-[1] bg-base-100 rounded-box ">
+            <div className="dropdown-content w-[300px] gap-3 shadow flex-col px-4 py-3 z-[1] bg-base-100 rounded-box ">
               <p className=" text-base font-semibold">{item}</p>
               <p className="text-sm text-[#00000089]">{thisData?.info}</p>
             </div>
